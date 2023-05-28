@@ -1,0 +1,35 @@
+footer {
+  background-color: #050C42;
+  height: 83px;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  margin-top: 0.75rem;
+  margin-right: 1.5rem;
+  width: 79px;
+  height: 48px;
+}
+
+span {
+  margin-right: 0.5rem;
+  margin-top: -0,25rem;
+  font-size: 20px;
+
+}
+/* font-size: 20px */
+

@@ -1,0 +1,70 @@
+<!-- PAG #telaInicial -->
+<section class="container">
+  <header>Pesquisa musical</header>
+  <div class="busca">
+    <!-- <input type="search"> -->
+    <input
+      type="text"
+      placeholder="Digite aqui"
+      [(ngModel)]="inputTexto"
+      required>
+
+    <button (click)="inputTexto &&  pesquisar()">
+      <img src="assets/icone-busca.png" alt="Lupa de cor roxa">
+    </button>
+  </div>
+  <p>Busque por artistas ou albuns...</p>
+  <select [(ngModel)]="selectTipo" [formControl]="selectOpcoes"  required>
+    <option  textField="text">
+      Escolha o tipo
+    </option>
+    <option value="artista">Artista</option>
+    <option value="album">Album</option>
+  </select>
+  <!-- <div class="resultados mensagem-erro">
+    aqui vai aparecer a mensagem de erro
+  </div> -->
+  <!-- <div
+    class="resultados"
+    >
+     resultados encontrados
+  </div> -->
+  <div
+    class="container-card"
+    *ngIf="listaArtistas; else listaAlbuns">
+    <div *ngFor="
+    let item of itens">
+    <div class="resultado">
+      <div class="card">
+        <div class="info-card">
+          <p>Artista</p>
+          <p class="nome">{{item.name}}</p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+<ng-template #listaAlbuns>
+  <div *ngFor="
+  let item of itens">
+  <div class="resultado">
+    <div class="card">
+      <div class="info-card">
+        <p class="nome">{{item.artist}}</p>
+        <p class="nomeAlbum">{{item.name}}</p>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</ng-template>
+<!-- <div class="imagens">
+  <h1 class="titulo">Busque o artistas <br> que quiser na <br> nossa estante!</h1>
+  <img
+    class="ilustracao"
+    src="../../assets/imagens/ilustracao-estante.png"
+    alt="Ilustração de uma pessoa em pé ao lado de uma estante com livros e plantas">
+</div> -->
+</section>
+
