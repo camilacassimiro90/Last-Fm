@@ -26,7 +26,6 @@ section input {
   outline: 0;
   box-sizing: border-box;
   top: 220px;
-  /* background: url(../assets/search.p); */
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: 4.08%;
@@ -75,12 +74,12 @@ input[type="search"]::-webkit-search-decoration,
 ::-webkit-search-results-button,
 ::-webkit-search-results-decoration { display: none; }
 
-section button {
+section .lupa {
   border: none;
   text-decoration: none;
   background: none;
   position: relative;
-  top: 0.3rem;
+  /* top: 0.3rem; */
   right: 50px;
 }
 
@@ -188,6 +187,20 @@ section button {
   color: #8B8B8B;
 }
 
+
+.busca-container {
+  display: flex;
+  align-items: center;
+}
+
+select {
+  margin-right: 10px;
+}
+
+.pesquisar {
+  background-color: #6C63FF;
+}
+
 /* button {
   background: #6C63FF;
   width: 156px;
@@ -206,17 +219,3 @@ section button {
 /* button:hover {
   background: #050C42;
 } */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
