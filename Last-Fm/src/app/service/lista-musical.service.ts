@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,14 @@ export class ListaMusicalService {
   };
 
   pesquisarPorArtista(artist: String): Observable<any> {
-    return this.httpClient.post<any>(this.urlApi + "/2.0/?method=artist.search&artist=" + artist + "&api_key=" + this.apiKey + "&format=json", null);
+    return this.httpClient.post<any>(this.urlApi + "/2.0/?method=artist.search&artist=" + artist + "&api_key=" + this.apiKey + "&format=json", null)
+    .pipe(
+      map(response => {
+        return response.results.artistmatches.artist.map((artist: { name: string}) => ({
+          name: artist.name
+        }));
+      })
+    );
   }
 
   pesquisarPorAlbum(album: String): Observable<any> {

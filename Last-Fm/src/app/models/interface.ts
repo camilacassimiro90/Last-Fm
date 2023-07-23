@@ -1,5 +1,6 @@
 export interface Artista {
   name?: string;
+  photo?: string;
 }
 
 export interface Album {
