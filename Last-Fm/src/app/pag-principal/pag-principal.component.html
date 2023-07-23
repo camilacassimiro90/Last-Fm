@@ -5,7 +5,7 @@
 
     <input
       type="text"
-      placeholder="Digite aqui"
+      placeholder="Busque por artistas ou albuns..."
       [(ngModel)]="inputTexto"
       (keyup.enter)="pesquisar()"
       required
@@ -15,8 +15,8 @@
       <img src="assets/icone-busca.png" alt="Lupa de cor roxa" />
     </button>
   </div>
-
-  <p>Busque por artistas ou albuns...</p>
+<!--
+  <p>Busque por artistas ou albuns...</p> -->
   <div class="busca-container">
     <select [(ngModel)]="selectTipo" [formControl]="selectOpcoes" required>
       <option [defaultSelected]="defaultItem" textField="text">
@@ -25,7 +25,7 @@
       <option value="artista">Artista</option>
       <option value="album">Album</option>
     </select>
-    
+
 
     <div>
       <button class="pesquisar" (click)="pesquisar()">Pesquisar</button>
@@ -34,14 +34,13 @@
 
 <div class="container-card">
   <div *ngIf="listaAlbuns; else listaArtistas" class="row">
-    <div class="col-md-4" *ngFor="let item of itens">
+    <div class="col-md-4 card-margin-album" *ngFor="let item of itens">
       <div class="resultado">
         <div class="card">
           <div class="info-card">
-            <h3>Album:</h3>
-            <div>{{ item.name }}</div>
-            <h3>Artista:</h3>
-            <div>{{ item.artist }}</div>
+            <h4>Artista - {{ item.artist }}</h4>
+            <h4>Album - {{ item.name }}</h4>
+            <img [src]="item.image[3]['#text']" alt="{{ item.name }}">
           </div>
         </div>
       </div>
@@ -49,13 +48,12 @@
   </div>
   <ng-template #listaArtistas>
     <div class="row">
-      <div class="col-md-4" *ngFor="let item of itens">
+      <div class="col-md-4 card-margin" *ngFor="let item of itens">
         <div class="resultado">
           <div class="card">
             <div class="info-card">
-              <h3>Artista</h3>
-              <div>{{ item.name }}</div>
-              <img [src]="item.image[0]['#text']" alt="Imagem do Artista">
+              <h4>Artista - {{ item.name }}</h4>
+              <img [src]="item.image[3]['#text']" alt="{{ item.name }}">
             </div>
           </div>
         </div>
